@@ -1,6 +1,14 @@
 /**
+ * @typedef {Object} Card
+ * @property {number} color
+ * @property {number} value
+ */
+
+
+/**
  * 
  * @param {number} card 
+ * @returns {Card}
  */
 function parseCard(card) {
     let color = Math.floor(card / 16)
@@ -19,6 +27,14 @@ function allCards() {
         }
     }
     return rtn
+}
+
+/**
+ * 
+ * @param {Card[]} cards 
+ */
+function sortByValue(cards) {
+    cards.sort((a, b) => a.value - b.value)
 }
 
 /**
@@ -57,7 +73,7 @@ function isPure(cards) {
  */
 function isSeq(cards) {
     let _cards = cards.map(v => parseCard(v))
-    _cards.sort((a, b) => a.value - b.value)
+    sortByValue(_cards)
     let [a, b, c] = _cards
     if (a.value == b.value - 1 && b.value == c.value - 1) {
         return true
