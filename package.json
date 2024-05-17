@@ -7,5 +7,6 @@
     "start": "node ."
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "type": "module"
 }
