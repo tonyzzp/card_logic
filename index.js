@@ -57,11 +57,27 @@ function testJhandiMunda() {
     console.info(TOTAL, totalWin, 1 - totalWin / TOTAL)
 }
 
+function testDVST() {
+    let TOTAL = 10000000
+    let totalTie = 0
+    let cards = card_utils.allCards()
+    for (let i = 0; i < TOTAL; i++) {
+        card_utils.shift(cards)
+        let a = cards[0] % 16
+        let b = cards[1] % 16
+        if (a == b) {
+            totalTie++
+        }
+    }
+    console.info(totalTie, totalTie / TOTAL)
+}
+
 function main() {
     // for (let i = 1; i <= 10; i++) {
     //     testCards(i)
     // }
-    testJhandiMunda()
-} 3
+    // testJhandiMunda()
+    testDVST()
+}
 
 main()
